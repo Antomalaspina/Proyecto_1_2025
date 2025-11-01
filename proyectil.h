@@ -10,7 +10,7 @@ private:
     float velocidad_y;
 public:
     proyectil(float velocidad_y, int vida_, float x_,float _y,float ancho_,float alto_);
-    float set_y(float y_proyectil);
+    void set_y(float y_proyectil);
     void Dibujar(QPainter &Qpainter) override ;
 
 };

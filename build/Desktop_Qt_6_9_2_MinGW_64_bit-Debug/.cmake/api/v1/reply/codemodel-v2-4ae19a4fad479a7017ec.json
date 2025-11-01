@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-7aaef84eea3b568ab3df.json",
+					"jsonFile" : "directory-.-Debug-4915a1ec39bdb5360449.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Space_Invaders::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Space_Invaders-Debug-10b9ecc87e7473a5bc38.json",
+					"jsonFile" : "target-Space_Invaders-Debug-84a73a6de008871a4dbf.json",
 					"name" : "Space_Invaders",
 					"projectIndex" : 0
 				},

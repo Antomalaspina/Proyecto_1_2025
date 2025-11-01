@@ -421,6 +421,12 @@
 			null
 		],
 		[
+			"C:/Users/ASUS/Documents/Space_Invaders/escenario.h",
+			"MU",
+			"EWIEGA46WW/moc_escenario.cpp",
+			null
+		],
+		[
 			"C:/Users/ASUS/Documents/Space_Invaders/gamelogic.h",
 			"MU",
 			"EWIEGA46WW/moc_gamelogic.cpp",
@@ -529,6 +535,7 @@
 			"MU",
 			null
 		],
+		[ "C:/Users/ASUS/Documents/Space_Invaders/escenario.cpp", "MU", null ],
 		[ "C:/Users/ASUS/Documents/Space_Invaders/gamelogic.cpp", "MU", null ],
 		[ "C:/Users/ASUS/Documents/Space_Invaders/gamewidget.cpp", "MU", null ],
 		[ "C:/Users/ASUS/Documents/Space_Invaders/main.cpp", "MU", null ],

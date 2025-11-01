@@ -4,7 +4,7 @@
 
 class Dibujable_abstracto
 {
-private:
+protected:
     int vida;
     float x;
     float y;

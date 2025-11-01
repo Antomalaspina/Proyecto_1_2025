@@ -145,6 +145,14 @@ build CMakeFiles/Space_Invaders.dir/proyectil.cpp.obj: CXX_COMPILER__Space_Invad
   OBJECT_DIR = CMakeFiles\Space_Invaders.dir
   OBJECT_FILE_DIR = CMakeFiles\Space_Invaders.dir
 
+build CMakeFiles/Space_Invaders.dir/escenario.cpp.obj: CXX_COMPILER__Space_Invaders_unscanned_Debug C$:/Users/ASUS/Documents/Space_Invaders/escenario.cpp || cmake_object_order_depends_target_Space_Invaders
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\Space_Invaders.dir\escenario.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/ASUS/Documents/Space_Invaders/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/Space_Invaders_autogen/include -isystem C:/Qt/6.9.2/mingw_64/include/QtCore -isystem C:/Qt/6.9.2/mingw_64/include -isystem C:/Qt/6.9.2/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.2/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.2/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\Space_Invaders.dir
+  OBJECT_FILE_DIR = CMakeFiles\Space_Invaders.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Space_Invaders
@@ -153,7 +161,7 @@ build CMakeFiles/Space_Invaders.dir/proyectil.cpp.obj: CXX_COMPILER__Space_Invad
 #############################################
 # Link the executable Space_Invaders.exe
 
-build Space_Invaders.exe: CXX_EXECUTABLE_LINKER__Space_Invaders_Debug CMakeFiles/Space_Invaders.dir/Space_Invaders_autogen/mocs_compilation.cpp.obj CMakeFiles/Space_Invaders.dir/main.cpp.obj CMakeFiles/Space_Invaders.dir/gamewidget.cpp.obj CMakeFiles/Space_Invaders.dir/gamelogic.cpp.obj CMakeFiles/Space_Invaders.dir/dibujable_abstracto.cpp.obj CMakeFiles/Space_Invaders.dir/barrera.cpp.obj CMakeFiles/Space_Invaders.dir/nave.cpp.obj CMakeFiles/Space_Invaders.dir/alien.cpp.obj CMakeFiles/Space_Invaders.dir/calamar.cpp.obj CMakeFiles/Space_Invaders.dir/cangrejo.cpp.obj CMakeFiles/Space_Invaders.dir/pulpo.cpp.obj CMakeFiles/Space_Invaders.dir/proyectil.cpp.obj | C$:/Qt/6.9.2/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.9.2/mingw_64/lib/libQt6Gui.a C$:/Qt/6.9.2/mingw_64/lib/libQt6Core.a || Space_Invaders_autogen Space_Invaders_autogen_timestamp_deps
+build Space_Invaders.exe: CXX_EXECUTABLE_LINKER__Space_Invaders_Debug CMakeFiles/Space_Invaders.dir/Space_Invaders_autogen/mocs_compilation.cpp.obj CMakeFiles/Space_Invaders.dir/main.cpp.obj CMakeFiles/Space_Invaders.dir/gamewidget.cpp.obj CMakeFiles/Space_Invaders.dir/gamelogic.cpp.obj CMakeFiles/Space_Invaders.dir/dibujable_abstracto.cpp.obj CMakeFiles/Space_Invaders.dir/barrera.cpp.obj CMakeFiles/Space_Invaders.dir/nave.cpp.obj CMakeFiles/Space_Invaders.dir/alien.cpp.obj CMakeFiles/Space_Invaders.dir/calamar.cpp.obj CMakeFiles/Space_Invaders.dir/cangrejo.cpp.obj CMakeFiles/Space_Invaders.dir/pulpo.cpp.obj CMakeFiles/Space_Invaders.dir/proyectil.cpp.obj CMakeFiles/Space_Invaders.dir/escenario.cpp.obj | C$:/Qt/6.9.2/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.9.2/mingw_64/lib/libQt6Gui.a C$:/Qt/6.9.2/mingw_64/lib/libQt6Core.a || Space_Invaders_autogen Space_Invaders_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_LIBRARIES = C:/Qt/6.9.2/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.9.2/mingw_64/lib/libQt6Gui.a  C:/Qt/6.9.2/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Space_Invaders.dir
