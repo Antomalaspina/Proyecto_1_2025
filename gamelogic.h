@@ -8,6 +8,7 @@
 #include "cangrejo.h"
 #include "pulpo.h"
 #include "proyectil.h"
+#include <qevent.h>
 class Calamar;
 class Cangrejo;
 class Pulpo;
@@ -30,6 +31,7 @@ public:
     void Mover_enemigos();
     void Colision_proyectil();
     void vida();
+    void Pressbutton(QKeyEvent *ev);
 };
 
 #endif // GAMELOGIC_H

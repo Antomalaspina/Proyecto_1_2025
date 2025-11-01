@@ -24,7 +24,7 @@ Gamelogic::Gamelogic()
         for (int c = 0; c < columnas; c++) {
             int x = inicioX + c * espaciadoX;
             int y = inicioY + f * espaciadoY;
-            Pulpo* pulpito = new Pulpo(1, x, y, 100, 10,4);  // ancho 20, alto 10
+            Pulpo* pulpito = new Pulpo(1, x, y, 35, 10,4);  // ancho 20, alto 10
             lista_Pulpo.append(pulpito);
         }
     }
@@ -62,4 +62,14 @@ void Gamelogic::Colision_proyectil()
 void Gamelogic::vida()
 {
 
+}
+void Gamelogic::Pressbutton(QKeyEvent *ev){
+    if (ev->key() == Qt::Key_Left){
+        qDebug() << "Moviendo izquierda";
+        nave_principal->set_x(nave_principal->get_x() - 10);  // MENOS para izquierda
+    }
+    if (ev->key() == Qt::Key_Right){
+        qDebug() << "Moviendo derecha";
+        nave_principal->set_x(nave_principal->get_x() + 10);  // MÁS para derecha
+    }
 }

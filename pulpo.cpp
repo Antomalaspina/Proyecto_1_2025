@@ -9,6 +9,7 @@ Pulpo::Pulpo(int vida_, float x_, float y_, float ancho_, float alto_, float sep
     x=x_;
     y=y_;
     alto=alto_;
+    ancho=ancho_;
     separacion_alien=separacion_alien;
 
 }

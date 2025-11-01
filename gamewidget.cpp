@@ -1,21 +1,23 @@
 #include "gamewidget.h"
 #include <QPainter>
 #include <QKeyEvent>
+#include <QDebug>
 
-
-GameWidget::GameWidget(QWidget *parent)
- : QWidget(parent) {
+GameWidget::GameWidget(QWidget *parent) : QWidget(parent) {
     setWindowTitle("Space Invaders");
-    setFixedSize(800, 600); // Tamaño fijo de la ventana
-
-    // Configurar el widget para recibir eventos de teclado
+    setFixedSize(800, 600);
     setFocusPolicy(Qt::StrongFocus);
 
-    // Inicializar timer (opcional, para futuras actualizaciones)
+    // SOLO UNA instancia del timer
     Tiempo_principal = new QTimer(this);
+    Tiempo_principal->setInterval(30);  // 30ms
 
-    // Inicializar lógica del juego (opcional)
-     logic = new Gamelogic();
+    // Conectar el timer
+    connect(Tiempo_principal, &QTimer::timeout, this, &GameWidget::actualizarJuego);
+    Tiempo_principal->start();
+
+    // Inicializar lógica del juego
+    logic = new Gamelogic();
 }
 
 void GameWidget::paintEvent(QPaintEvent * a){
@@ -25,11 +27,13 @@ void GameWidget::paintEvent(QPaintEvent * a){
     painter.fillRect(rect(), Qt::black);
 
     // Aquí puedes agregar más elementos de dibujo
-
     logic->Dibujar(painter);
 }
 
-void GameWidget:: KeyPressEvent(QKeyEvent* b){
-
+void GameWidget::actualizarJuego() {
+    update();  // Esto llama a paintEvent()
 }
 
+void GameWidget:: keyPressEvent(QKeyEvent* b){
+    logic->Pressbutton(b);
+}
