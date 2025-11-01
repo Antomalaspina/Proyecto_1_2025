@@ -25,8 +25,7 @@ void GameWidget::paintEvent(QPaintEvent * a){
     painter.fillRect(rect(), Qt::black);
 
     // Aquí puedes agregar más elementos de dibujo
-    painter.setPen(Qt::white);
-    painter.drawText(rect(), Qt::AlignCenter, "VENTANA DEL JUEGO\nPresiona cualquier tecla");
+
     logic->Dibujar(painter);
 }
 

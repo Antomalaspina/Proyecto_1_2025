@@ -21,7 +21,7 @@ private:
     QList<Barrera*> lista_barrera;
     QList<calamar*> lista_calamar;
     QList<cangrejo*> lista_cangrejo;
-    QList<pulpo*> lista_pulpo;
+    QList<Pulpo*> lista_Pulpo;
     QList<proyectil*> lista_proyectil;
 public:
     Gamelogic();

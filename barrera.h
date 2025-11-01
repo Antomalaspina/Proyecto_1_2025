@@ -10,7 +10,7 @@ private:
 
 public:
     Barrera(float Separacion_barrera,int vida_,float x_, float y_,float ancho_, float alto_);
-    void Dibujar(QPainter &Qpainter) override ;
+    void Dibujar(QPainter &P) override ;
 };
 
 #endif // BARRERA_H
