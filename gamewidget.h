@@ -9,7 +9,7 @@
 
 class GameWidget: public QWidget
 {
-    Q_OBJECT
+    //Q_OBJECT
 private:
     QTimer * Tiempo_principal;
      Gamelogic *logic;
@@ -17,6 +17,7 @@ public:
     GameWidget(QWidget *parent =nullptr);// mi constructor instancia un objeto que apunta a Qwidget
     void paintEvent(QPaintEvent * );
     void keyPressEvent(QKeyEvent *);
+private slots:
     void actualizarJuego();
 };
 
