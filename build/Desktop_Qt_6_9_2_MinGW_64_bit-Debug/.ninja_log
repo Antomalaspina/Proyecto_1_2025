@@ -1,0 +1,9 @@
+# ninja log v6
+31	235	7821856057274928	Space_Invaders_autogen/timestamp	2175c27106d0cdc8
+237	316	7821856059340774	CMakeFiles/Space_Invaders.dir/Space_Invaders_autogen/mocs_compilation.cpp.obj	60f8eac5f9ea572e
+240	2652	7821856059368900	CMakeFiles/Space_Invaders.dir/main.cpp.obj	7f5865883ac8f0e3
+31	235	7821856057274928	Space_Invaders_autogen/mocs_compilation.cpp	2175c27106d0cdc8
+31	235	7821856057274928	C:/Users/ASUS/Documents/Space_Invaders/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/Space_Invaders_autogen/timestamp	2175c27106d0cdc8
+1625	1725	7821831632078683	Space_Invaders.exe	5d0bdc9d7ca3d2fb
+31	235	7821856057274928	C:/Users/ASUS/Documents/Space_Invaders/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/Space_Invaders_autogen/mocs_compilation.cpp	2175c27106d0cdc8
+245	2528	7821856059422685	CMakeFiles/Space_Invaders.dir/gamelogic.cpp.obj	3a9a43b555f6d3ab
