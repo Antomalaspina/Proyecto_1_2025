@@ -1,0 +1,22 @@
+# ninja log v6
+5	102	7837061103612096	Space_Invaders_autogen/timestamp	fe44deaa6b53e54f
+127	171	7837055797448510	CMakeFiles/Space_Invaders.dir/Space_Invaders_autogen/mocs_compilation.cpp.obj	11bfbf475456a696
+129	1582	7837055797468514	CMakeFiles/Space_Invaders.dir/main.cpp.obj	223c7fd91c98cf1d
+5	102	7837061103612096	Space_Invaders_autogen/mocs_compilation.cpp	fe44deaa6b53e54f
+5	102	7837061103612096	C:/Users/Usuario/Desktop/UNI/PC2/Proyecto_1_Anto/proyecto2pcii/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/Space_Invaders_autogen/timestamp	fe44deaa6b53e54f
+5	102	7837061103612096	C:/Users/Usuario/Desktop/UNI/PC2/Proyecto_1_Anto/proyecto2pcii/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/Space_Invaders_autogen/mocs_compilation.cpp	fe44deaa6b53e54f
+105	1946	7837061104606014	CMakeFiles/Space_Invaders.dir/gamelogic.cpp.obj	8d0b108fa8f3360f
+102	2245	7837061104586016	CMakeFiles/Space_Invaders.dir/gamewidget.cpp.obj	df3a61b93c8ca414
+19	135	7837065288347677	Space_Invaders_autogen/timestamp	fe44deaa6b53e54f
+19	135	7837065288347677	Space_Invaders_autogen/mocs_compilation.cpp	fe44deaa6b53e54f
+19	135	7837065288347677	C:/Users/Usuario/Desktop/UNI/PC2/Proyecto_1_Anto/proyecto2pcii/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/Space_Invaders_autogen/timestamp	fe44deaa6b53e54f
+19	135	7837065288347677	C:/Users/Usuario/Desktop/UNI/PC2/Proyecto_1_Anto/proyecto2pcii/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/Space_Invaders_autogen/mocs_compilation.cpp	fe44deaa6b53e54f
+136	194	7837065289513892	CMakeFiles/Space_Invaders.dir/dibujable_abstracto.cpp.obj	15f57018db5c9973
+18	111	7837066190469789	Space_Invaders_autogen/timestamp	fe44deaa6b53e54f
+18	111	7837066190469789	Space_Invaders_autogen/mocs_compilation.cpp	fe44deaa6b53e54f
+18	111	7837066190469789	C:/Users/Usuario/Desktop/UNI/PC2/Proyecto_1_Anto/proyecto2pcii/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/Space_Invaders_autogen/timestamp	fe44deaa6b53e54f
+18	111	7837066190469789	C:/Users/Usuario/Desktop/UNI/PC2/Proyecto_1_Anto/proyecto2pcii/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/Space_Invaders_autogen/mocs_compilation.cpp	fe44deaa6b53e54f
+120	1768	7837066191486362	CMakeFiles/Space_Invaders.dir/nave.cpp.obj	4c4c89e259e45fde
+114	1808	7837066191426300	CMakeFiles/Space_Invaders.dir/gamelogic.cpp.obj	8d0b108fa8f3360f
+137	1846	7837066191656955	CMakeFiles/Space_Invaders.dir/escenario.cpp.obj	ec95a33d395a91a4
+111	2085	7837066191401254	CMakeFiles/Space_Invaders.dir/gamewidget.cpp.obj	df3a61b93c8ca414

@@ -24,12 +24,7 @@ private:
     QList<pulpo*> lista_pulpo;
     QList<proyectil*> lista_proyectil;
 public:
-    Gamelogic(Nave* nave,
-              QList<Barrera*> barrera,
-              QList<Calamar*> calamar,
-              QList<Cangrejo*> cangrejo,
-              QList<Pulpo*> pulpos,
-              QList<Proyectil*> proyectil);
+    Gamelogic();
     void Dibujar(QPainter &painter);
     void Generar_proyectiles();
     void Mover_enemigos();

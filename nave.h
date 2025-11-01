@@ -8,7 +8,7 @@ class Nave: public Dibujable_abstracto
 public:
     Nave();
     float set_x(float x_nave_nueva);
-    void Dibujar(QPainter &Qpainter) override ;
+   void Dibujar(QPainter &Qpainter) override ;
 
 };
 

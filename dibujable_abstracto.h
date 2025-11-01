@@ -12,7 +12,6 @@ private:
     float alto;
 
 public:
-    Dibujable_abstracto(int vida_,float x_, float y_,float ancho_, float alto_);
     float get_x();
     float get_y();
     float get_ancho();
