@@ -16,7 +16,7 @@ public:
     float get_y();
     float get_ancho();
     float get_alto();
-    virtual void Dibujar(QPainter &Qpainter)=0;
+    virtual void Dibujar(QPainter &P)=0;
 };
 
 #endif // DIBUJABLE_ABSTRACTO_H

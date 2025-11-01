@@ -15,7 +15,7 @@ GameWidget::GameWidget(QWidget *parent)
     Tiempo_principal = new QTimer(this);
 
     // Inicializar lógica del juego (opcional)
-    // logic = new Gamelogic();
+     logic = new Gamelogic();
 }
 
 void GameWidget::paintEvent(QPaintEvent * a){
@@ -27,6 +27,7 @@ void GameWidget::paintEvent(QPaintEvent * a){
     // Aquí puedes agregar más elementos de dibujo
     painter.setPen(Qt::white);
     painter.drawText(rect(), Qt::AlignCenter, "VENTANA DEL JUEGO\nPresiona cualquier tecla");
+    logic->Dibujar(painter);
 }
 
 void GameWidget:: KeyPressEvent(QKeyEvent* b){

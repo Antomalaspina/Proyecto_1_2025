@@ -3,12 +3,12 @@
 
 Gamelogic::Gamelogic()
 {
-
+    nave_principal=new Nave(385,580);
 }
 
 void Gamelogic::Dibujar(QPainter &painter)
 {
-
+    nave_principal->Dibujar(painter);
 }
 
 void Gamelogic::Generar_proyectiles()
