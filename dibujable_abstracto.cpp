@@ -3,23 +3,24 @@
 float Dibujable_abstracto::get_x()
 {
 
-    return 0.0f; // Cambiar por el valor apropiado
+    return x;
 }
 
 float Dibujable_abstracto::get_y()
 {
 
-    return 0.0f; // Cambiar por el valor apropiado
+    return y;
 }
 
 float Dibujable_abstracto::get_ancho()
 {
 
-    return 0.0f; // Cambiar por el valor apropiado
+    return ancho;
 }
 
 float Dibujable_abstracto::get_alto()
 {
 
-    return 0.0f; // Cambiar por el valor apropiado
+    return alto;
 }
+

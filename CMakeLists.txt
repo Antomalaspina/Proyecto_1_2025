@@ -18,7 +18,11 @@ qt_add_executable(Space_Invaders
     cangrejo.h cangrejo.cpp
     pulpo.h pulpo.cpp
     proyectil.h proyectil.cpp
-    escenario.h escenario.cpp
+
+    colisionable.h colisionable.cpp
+    nave_enemiga.h nave_enemiga.cpp
+    movil.h
+
 )
 
 target_link_libraries(Space_Invaders

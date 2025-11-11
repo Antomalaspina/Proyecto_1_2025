@@ -2,6 +2,7 @@
 #define DIBUJABLE_ABSTRACTO_H
 #include <QPainter>
 
+
 class Dibujable_abstracto
 {
 protected:
@@ -17,6 +18,8 @@ public:
     float get_ancho();
     float get_alto();
     virtual void Dibujar(QPainter &P)=0;
+    // Implementación de get_area de Colision (debe ser virtual)
+
 };
 
 #endif // DIBUJABLE_ABSTRACTO_H

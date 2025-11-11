@@ -1,18 +1,19 @@
 #ifndef PROYECTIL_H
 #define PROYECTIL_H
-#include <QPainter>
+#include "colisionable.h"
 #include "dibujable_abstracto.h"
+#include "movil.h"
 
-#include "dibujable_abstracto.h"
-class proyectil: public Dibujable_abstracto
+
+class proyectil: public colisionable, public Dibujable_abstracto, public movil
 {
-private:
-    float velocidad_y;
+
 public:
     proyectil(float velocidad_y, int vida_, float x_,float _y,float ancho_,float alto_);
-    void set_y(float y_proyectil);
-    void Dibujar(QPainter &Qpainter) override ;
-
+    QRectF get_area() const override;
+    void Dibujar(QPainter &P) override ;
+    //✅métodos de movil:
+    virtual void movimiento() override;
 };
 
 #endif // PROYECTIL_H
