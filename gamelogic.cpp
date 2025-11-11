@@ -1,360 +1,350 @@
-#include "gamelogic.h"
-#include <QPainter>
-#include "cangrejo.h"
+#include "gamelogic.h"          // Incluye la clase principal de lógica
+#include <QPainter>             // Permite dibujar en pantalla
+#include "cangrejo.h"           // Tipos de enemigos
 #include "pulpo.h"
 #include "calamar.h"
-#include <QRandomGenerator64>
+#include <QRandomGenerator64>   // Generador aleatorio
 
-//Variables
-bool mover_izq=false; bool mover_dcha=false; bool disparar=false;
+// Flags globales para leer teclas mantenidas
+bool mover_izq=false;
+bool mover_dcha=false;
+bool disparar=false;
+
+// Variables auxiliares (no muy usadas)
 float vel_alienx, vel_alieny;
 
+//---------------------------------------------------------
+// CONSTRUCTOR: configura la lógica inicial del juego
+//---------------------------------------------------------
 Gamelogic::Gamelogic()
 {
-    // Inicializar estado del juego
-    juego_iniciado = false;
-    puntaje = 0;
-    puntaje_maximo = 0;
+    juego_iniciado = false;     // Inicia en menú
+    puntaje = 0;                // Puntaje inicial
+    puntaje_maximo = 0;         // Mejor puntaje
 
-    nave_principal = nullptr;
-    nave_bonus = nullptr;
+    nave_principal = nullptr;   // No hay nave todavía
+    nave_bonus = nullptr;       // Sin nave bonus
 }
 
+//---------------------------------------------------------
+// Inicializa una partida desde cero
+//---------------------------------------------------------
 void Gamelogic::inicializar_juego()
 {
-    // Limpiar todo lo anterior si existe
+    // Limpia instancias previas si existían
     if (nave_principal != nullptr) delete nave_principal;
     if (nave_bonus != nullptr) delete nave_bonus;
 
     lista_dibujables.clear();
-    //pa'limpiar
     lista_moviles.clear();
 
-    qDeleteAll(lista_barrera);
-    lista_barrera.clear();
+    qDeleteAll(lista_barrera); lista_barrera.clear();
+    qDeleteAll(lista_alien); lista_alien.clear();
+    qDeleteAll(lista_proyectil_jugador); lista_proyectil_jugador.clear();
+    qDeleteAll(lista_proyectil_enemigos); lista_proyectil_enemigos.clear();
 
-    qDeleteAll(lista_alien);
-    lista_alien.clear();
+    puntaje = 0;   // Reinicia el puntaje
 
-    qDeleteAll(lista_proyectil_jugador);
-    lista_proyectil_jugador.clear();
+    // Parámetros de movimiento alien
+    velocidad_alien = 0.2f;
+    direccion_derecha = true;
+    descenso_alien = 20.0f;
+    margen_izquierdo = 10;
+    margen_derecho = 790;
 
-    qDeleteAll(lista_proyectil_enemigos);
-    lista_proyectil_enemigos.clear();
-
-
-    // Reiniciar puntaje
-    puntaje = 0;
-    // Inicializar variables de movimiento
-    velocidad_alien = 0.2f;          // Velocidad horizontal
-    direccion_derecha = true;        // Empiezan moviéndose a la derecha
-    descenso_alien = 20.0f;          // Cuánto bajan cuando tocan el borde
-    margen_izquierdo = 10;           // Margen izquierdo de la pantalla
-    margen_derecho = 790;            // Margen derecho (800 - 10)
-
-
+    // Crea la nave del jugador
     nave_principal = new Nave(385, 580);
     lista_dibujables.append(nave_principal);
     lista_moviles.append(nave_principal);
 
-    // Inicializar variables de disparo alien
+    // Configura temporizador de disparo alien
     contador_disparo_alien = 0;
-    intervalo_disparo_min = 60;   // Mínimo 60 frames (~1 segundo a 60fps)
-    intervalo_disparo_max = 180;  // Máximo 180 frames (~3 segundos)
-    // Inicializar variables de nave bonus
+    intervalo_disparo_min = 60;
+    intervalo_disparo_max = 180;
+
+    // Configura nave bonus
     nave_bonus = nullptr;
     contador_nave_bonus = 0;
     intervalo_nave_bonus = 600;
 
-
-//creo barreras
+    //-----------------------------------------------------
+    // Generación de las 4 barreras
+    //-----------------------------------------------------
     Barrera* barrita;
     for (int i = 0; i < 4; i++) {
         int x = 40 + i * 230;
         int y = 500;
-        barrita= new Barrera(40, 10, x, y, 40, 25);
+        barrita = new Barrera(40, 10, x, y, 40, 25);
         lista_barrera.append(barrita);
         lista_dibujables.append(barrita);
     }
 
-
-    // === Parámetros comunes de filas ===
+    //-----------------------------------------------------
+    // Generación de los aliens por filas
+    //-----------------------------------------------------
     int columnas = 11;
     int espaciadoX = 50;
     int inicioX = 50;
 
-    // === Calamar (fila 1) ===
+    // Fila superior: CALAMAR (30 pts)
     int inicioY_calamar = 90;
-    calamar* calamarcito;
     for (int c = 0; c < columnas; c++) {
-        int x = inicioX + c * espaciadoX;
-        int y = inicioY_calamar;
-        calamarcito= new calamar(1, x, y, 35, 10);
+        calamar* calamarcito = new calamar(1, inicioX + c * espaciadoX, inicioY_calamar, 35, 10);
         lista_alien.append(calamarcito);
         lista_dibujables.append(calamarcito);
     }
 
-    // === Cangrejo (filas 2 y 3) ===
+    // Filas 2-3: CANGREJOS (20 pts)
     int inicioY_cangrejo = 120;
-    int espaciadoY_cangrejo = 40;
-    cangrejo* cangrejito;
     for (int f = 0; f < 2; f++) {
         for (int c = 0; c < columnas; c++) {
-            int x = inicioX + c * espaciadoX;
-            int y = inicioY_cangrejo + f * espaciadoY_cangrejo;
-            cangrejito=new cangrejo(1, x, y, 35, 10);
+            cangrejo* cangrejito = new cangrejo(1, inicioX + c * espaciadoX, inicioY_cangrejo + f * 40, 35, 10);
             lista_alien.append(cangrejito);
             lista_dibujables.append(cangrejito);
         }
     }
 
-    // === Pulpo (filas 4 y 5) ===
+    // Filas 4-5: PULPOS (10 pts)
     int inicioY_pulpo = 200;
-    int espaciadoY_pulpo = 40;
-    Pulpo* pulpito;
     for (int f = 0; f < 2; f++) {
         for (int c = 0; c < columnas; c++) {
-            int x = inicioX + c * espaciadoX;
-            int y = inicioY_pulpo + f * espaciadoY_pulpo;
-            pulpito=new Pulpo(1, x, y, 35, 10);
+            Pulpo* pulpito = new Pulpo(1, inicioX + c * espaciadoX, inicioY_pulpo + f * 40, 35, 10);
             lista_alien.append(pulpito);
             lista_dibujables.append(pulpito);
         }
     }
-    //✅Fijo la velocidad de los aliens y de paso los agrego a la lista
-    for(Alien* alf:lista_alien){
-        alf->set_Vx(0.3f);//porque así estaba
-        alf->set_Vy(0.0f);//pa'que no se mueva verticalmente
+
+    // Configura movilidad de todos los aliens
+    for (Alien* alf : lista_alien) {
+        alf->set_Vx(0.3f);
+        alf->set_Vy(0.0f);
         lista_moviles.append(alf);
     }
-juego_iniciado = true;
+
+    juego_iniciado = true;   // Marca que estamos en partida
 }
 
+//---------------------------------------------------------
+// Arrancar una nueva partida
+//---------------------------------------------------------
 void Gamelogic::iniciar_juego()
 {
     juego_iniciado = true;
     inicializar_juego();
 }
+
+//---------------------------------------------------------
+// Dibuja el menú de inicio con la tabla de puntajes
+//---------------------------------------------------------
 void Gamelogic::Dibujar_menu(QPainter &P)
 {
-
-
-    // Título principal
+    // Título grande
     P.setFont(QFont("Courier New", 48, QFont::Bold));
     P.setPen(Qt::white);
     P.drawText(QRect(0, 50, 800, 80), Qt::AlignCenter, "SPACE INVADERS");
 
-    // Instrucción para jugar
+    // Instrucción para comenzar
     P.setFont(QFont("Courier New", 24, QFont::Bold));
     P.setPen(Qt::green);
     P.drawText(QRect(0, 150, 800, 40), Qt::AlignCenter, "APRETAR BARRA ESPACIADORA PARA INICIAR");
 
-    // Tabla de puntajes
+    // Tabla de puntuaciones
     P.setFont(QFont("Courier New", 20, QFont::Bold));
     P.setPen(Qt::white);
-    P.drawText(QRect(0, 250, 800, 40), Qt::AlignCenter, "*SCORE ADVANCE TABLE*");
+    P.drawText(QRect(0, 250, 800, 40), Qt::AlignCenter, "*TABLA DE PUNTUACIÓN*");
 
-    // Nave misteriosa (roja)
+    // Nave misteriosa
     P.setBrush(Qt::red);
     P.setPen(Qt::red);
     QRectF nave_mystery(250, 320, 40, 15);
     P.drawEllipse(nave_mystery);
     P.setFont(QFont("Courier New", 18));
     P.setPen(Qt::white);
-    P.drawText(310, 335, "= ? MYSTERY");
+    P.drawText(310, 335, "= ? MYSTERIO");
 
-    // Calamar (30 puntos)
+    // Calamar = 30 pts
     calamar* calamar_menu = new calamar(1, 270, 375, 25, 8);
     calamar_menu->Dibujar(P);
     delete calamar_menu;
-    P.setFont(QFont("Courier New", 18));
-    P.setPen(Qt::white);
-    P.drawText(310, 385, "= 30 POINTS");
+    P.drawText(310, 385, "= 30 PUNTOS");
 
-
-    // Cangrejo (20 puntos)
+    // Cangrejo = 20 pts
     cangrejo* cangrejo_menu = new cangrejo(1, 270, 425, 25, 8);
     cangrejo_menu->Dibujar(P);
     delete cangrejo_menu;
-    P.drawText(310, 430, "= 20 POINTS");
+    P.drawText(310, 430, "= 20 PUNTOS");
 
-    // Pulpo (10 puntos)
+    // Pulpo = 10 pts
     Pulpo* pulpo_menu = new Pulpo(1, 270, 470, 25, 8);
     pulpo_menu->Dibujar(P);
     delete pulpo_menu;
-    P.drawText(310, 475, "= 10 POINTS");
+    P.drawText(310, 475, "= 10 PUNTOS");
 
-
-    // Mostrar puntaje máximo si existe
+    // Puntaje máximo
     if (puntaje_maximo > 0) {
         P.setFont(QFont("Courier New", 16));
         P.setPen(Qt::yellow);
         P.drawText(QRect(0, 520, 800, 30), Qt::AlignCenter,
-                   QString("HIGH SCORE: %1").arg(puntaje_maximo));
+                   QString("PUNTAJE MÁXIMO: %1").arg(puntaje_maximo));
     }
 }
+
+//---------------------------------------------------------
+// Genera la nave bonus cada cierto tiempo
+//---------------------------------------------------------
 void Gamelogic::Generar_nave_bonus()
 {
-    if (nave_bonus != nullptr) return;
+    if (nave_bonus != nullptr) return;  // Solo una activa
 
     contador_nave_bonus++;
 
     if (contador_nave_bonus >= intervalo_nave_bonus) {
         contador_nave_bonus = 0;
 
+        // Decide si viene desde izq o der
         bool desde_izquierda = QRandomGenerator::global()->bounded(2) == 0;
         float x_inicial = desde_izquierda ? -50 : 850;
         float y_inicial = 40;
 
-
-
+        // Crea nave enemiga
         nave_bonus = new Nave_enemiga(x_inicial, y_inicial, desde_izquierda);
         lista_dibujables.append(nave_bonus);
-        //✅agregar a moviles y setear su velocidad
         lista_moviles.append(nave_bonus);
-        nave_bonus->set_Vx(3.0f);//✅Así estaba antes desde su constructor
+        nave_bonus->set_Vx(3.0f);   // Velocidad fija
     }
 }
 
+//---------------------------------------------------------
+// Dibuja el juego (modo normal, pausa, menú, etc.)
+//---------------------------------------------------------
 void Gamelogic::Dibujar(QPainter &P)
 {
-    {
-        // Si estamos en el menú, dibujar el menú
-        if (!juego_iniciado) {
-            Dibujar_menu(P);
-            return;
-        }
-
-
-        for (Dibujable_abstracto* dibu : lista_dibujables) {
-            if (dibu != nullptr) {
-                dibu->Dibujar(P);
-            }
-        }
-
-        // Mostrar puntaje
-        P.setPen(Qt::white);
-        P.setFont(QFont("Courier New", 16, QFont::Bold));
-        P.drawText(10, 20, QString("SCORE: %1").arg(puntaje));
-
-        // Mostrar puntaje máximo
-        P.drawText(600, 20, QString("HIGH: %1").arg(puntaje_maximo));
-
-        // Mostrar vidas restantes
-        if (nave_principal != nullptr) {
-            P.drawText(10, 45, QString("LIVES: %1").arg(nave_principal->get_vidas_restantes()));
-        }
-
-        // Mostrar mensaje de Game Over si la nave fue destruida
-        if (nave_principal != nullptr && nave_principal->esta_destruida()) {
-            P.setFont(QFont("Courier New", 48, QFont::Bold));
-            P.setBrush(Qt::white);
-            P.setPen(Qt::red);
-            P.drawText(200, 300, "GAME OVER");
-
-            P.setFont(QFont("Courier New", 20));
-            P.setPen(Qt::white);
-            P.drawText(QRect(0, 350, 800, 30), Qt::AlignCenter, "Press SPACE to return to menu");
-        }
-
-        // Mostrar mensaje de victoria si eliminó todos los aliens
-        if (lista_alien.isEmpty()) {
-            P.setFont(QFont("Courier New", 48, QFont::Bold));
-            P.setBrush(Qt::white);
-            P.setPen(Qt::green);
-            P.drawText(250, 300, "YOU WIN!");
-
-            P.setFont(QFont("Courier New", 20));
-            P.setPen(Qt::white);
-            P.drawText(QRect(0, 350, 800, 30), Qt::AlignCenter, "Press SPACE to return to menu");
-        }
+    if (!juego_iniciado) {
+        Dibujar_menu(P);
+        return;
     }
-    //mensaje de pausa con esc
-    if (pausa) {
+
+    // Dibuja todos los objetos
+    for (Dibujable_abstracto* dibu : lista_dibujables) {
+        if (dibu != nullptr) dibu->Dibujar(P);
+    }
+
+    // Puntaje
+    P.setPen(Qt::white);
+    P.setFont(QFont("Courier New", 16, QFont::Bold));
+    P.drawText(10, 20, QString("PUNTAJE: %1").arg(puntaje));
+    P.drawText(600, 20, QString("MÁXIMO: %1").arg(puntaje_maximo));
+
+    // Vidas de la nave
+    if (nave_principal != nullptr) {
+        P.drawText(10, 45, QString("VIDAS: %1").arg(nave_principal->get_vidas_restantes()));
+    }
+
+    // GAME OVER
+    if (nave_principal != nullptr && nave_principal->esta_destruida()) {
         P.setFont(QFont("Courier New", 48, QFont::Bold));
-        P.setPen(Qt::yellow);
-        P.drawText(QRect(0, 250, 800, 80), Qt::AlignCenter, "PAUSED");
+        P.setPen(Qt::red);
+        P.drawText(200, 300, "JUEGO TERMINADO");
 
         P.setFont(QFont("Courier New", 20));
         P.setPen(Qt::white);
-        P.drawText(QRect(0, 340, 800, 30), Qt::AlignCenter, "Press ESC to resume");
+        P.drawText(QRect(0, 350, 800, 30), Qt::AlignCenter, "Presionar SPACE para retornar al menú");
     }
 
+    // YOU WIN
+    if (lista_alien.isEmpty()) {
+        P.setFont(QFont("Courier New", 48, QFont::Bold));
+        P.setPen(Qt::green);
+        P.drawText(250, 300, "GANASTE!");
 
+        P.setFont(QFont("Courier New", 20));
+        P.setPen(Qt::white);
+        P.drawText(QRect(0, 350, 800, 30), Qt::AlignCenter, "Presionar SPACE para retornar al menú");
+    }
+
+    //-----------------------------------------------------
+    // Mensaje de PAUSA
+    //-----------------------------------------------------
+    if (pausa) {
+        P.setFont(QFont("Courier New", 48, QFont::Bold));
+        P.setPen(Qt::yellow);
+        P.drawText(QRect(0, 250, 800, 80), Qt::AlignCenter, "PAUSADO");
+
+        P.setFont(QFont("Courier New", 20));
+        P.setPen(Qt::white);
+        P.drawText(QRect(0, 340, 800, 30), Qt::AlignCenter, "Presionar ESC para reanudar");
+    }
 }
 
+//---------------------------------------------------------
+// Disparo aleatorio de aliens
+//---------------------------------------------------------
 void Gamelogic::Disparar_aliens()
 {
     if (lista_alien.isEmpty()) return;
 
     contador_disparo_alien++;
 
-    // Generar intervalo aleatorio para el próximo disparo
-    int intervalo_aleatorio = QRandomGenerator::global()->bounded(intervalo_disparo_min, intervalo_disparo_max);
+    // Intervalo aleatorio entre min y max
+    int intervalo_aleatorio =
+        QRandomGenerator::global()->bounded(intervalo_disparo_min, intervalo_disparo_max);
 
     if (contador_disparo_alien >= intervalo_aleatorio) {
         contador_disparo_alien = 0;
 
-        // Seleccionar un alien aleatorio que dispare
+        // Escoge un alien al azar
         int indice_aleatorio = QRandomGenerator::global()->bounded(lista_alien.size());
         Alien* alien_disparador = lista_alien[indice_aleatorio];
 
-
-        proyectil* nuevo_proyectil = alien_disparador->Disparar();
-        if (nuevo_proyectil != nullptr) {
-            lista_proyectil_enemigos.append(nuevo_proyectil);
-            lista_dibujables.append(nuevo_proyectil);
-            //✅Asigno los proyectiles a moviles
-            lista_moviles.append(nuevo_proyectil);
+        proyectil* nuevo_proy = alien_disparador->Disparar();
+        if (nuevo_proy != nullptr) {
+            lista_proyectil_enemigos.append(nuevo_proy);
+            lista_dibujables.append(nuevo_proy);
+            lista_moviles.append(nuevo_proy);
         }
     }
 }
 
-
+//---------------------------------------------------------
+// Detecta si algún alien tocó el borde pantalla
+//---------------------------------------------------------
 bool Gamelogic::Aliens_tocaron_borde()
 {
-    // Verificar si algún alien tocó el borde según la dirección
     for (Alien* alien : lista_alien) {
         QRectF area = alien->get_area();
-        //✅Primero supongo que no tocaron
 
-        alien->set_Vy(descenso_alien);
+        alien->set_Vy(descenso_alien);   // Fuerza la bajada
+
         if (direccion_derecha) {
-            // Si se mueven a la derecha, verificar el borde derecho
             if (area.right() >= margen_derecho) {
-                //✅No me acuerdo a qué velocidad estaba en y
-                descenso_alien=20.0f;
+                descenso_alien = 20.0f;
                 return true;
             }
         } else {
-            // Si se mueven a la izquierda, verificar el borde izquierdo
             if (area.left() <= margen_izquierdo) {
-                //✅sigo sin acordarme
-                //✅Me acordé
-                descenso_alien=20.0f;
+                descenso_alien = 20.0f;
                 return true;
             }
         }
     }
-    descenso_alien=0.0f;
+    descenso_alien = 0.0f;
     return false;
 }
 
+//---------------------------------------------------------
+// Movimiento horizontal y vertical de los aliens
+//---------------------------------------------------------
 void Gamelogic::Mover_enemigos()
 {
-
     if (lista_alien.isEmpty()) return;
-    //✅No recuerdo qué cambié, pero sé que cambié algo
-    // Verificar si tocaron el borde
-    if (Aliens_tocaron_borde()) {
-        // Cambiar dirección
-        direccion_derecha = !direccion_derecha;
 
-        //Aumentar velocidad a medida que quedan menos aliens
+    // Si toca borde → cambiar dirección y aumentar velocidad
+    if (Aliens_tocaron_borde()) {
+        direccion_derecha = !direccion_derecha;
         velocidad_alien = 0.3f + (55 - lista_alien.size()) * 0.03f;
     }
 
-    // Mover horizontalmente según la dirección
+    // Movimiento horizontal
     float desplazamiento = direccion_derecha ? velocidad_alien : -velocidad_alien;
 
     for (Alien* alien : lista_alien) {
@@ -362,86 +352,94 @@ void Gamelogic::Mover_enemigos()
     }
 }
 
-
-void Gamelogic::Pressbutton(QKeyEvent *ev){
-
-    // Si estamos en el menú, presionar espacio inicia el juego
+//---------------------------------------------------------
+// Manejo de teclas presionadas
+//---------------------------------------------------------
+void Gamelogic::Pressbutton(QKeyEvent *ev)
+{
+    // Menú → inicia con espacio
     if (!juego_iniciado) {
-        if (ev->key() == Qt::Key_Space) {
-            inicializar_juego();
-        }
+        if (ev->key() == Qt::Key_Space) inicializar_juego();
         return;
     }
 
-    // Si el juego terminó, espacio vuelve al menú
+    // Fin de partida → espacio vuelve al menú
     if (juego_terminado()) {
         if (ev->key() == Qt::Key_Space) {
             juego_iniciado = false;
-            // Actualizar puntaje máximo
-            if (puntaje > puntaje_maximo) {
-                puntaje_maximo = puntaje;
-            }
+            if (puntaje > puntaje_maximo) puntaje_maximo = puntaje;
         }
         return;
     }
 
-    // Controles normales del juego
-    if (ev->key() == Qt::Key_Left)
-        mover_izq = true;
-    if (ev->key() == Qt::Key_Right)
-        mover_dcha = true;
-    if (ev->key() == Qt::Key_Space)
-        disparar = true;
-    //✅Agrego la lectura de escapa
-    if(ev->key()==Qt::Key_Escape)
-        pausa=!pausa;//cambio el estado de pausa
+    // Movimiento
+    if (ev->key() == Qt::Key_Left) mover_izq = true;
+    if (ev->key() == Qt::Key_Right) mover_dcha = true;
 
+    // Disparo
+    if (ev->key() == Qt::Key_Space) disparar = true;
+
+    // Pausa con ESC
+    if (ev->key() == Qt::Key_Escape) pausa = !pausa;
 }
 
-void Gamelogic::Releasebutton(QKeyEvent *ev){
-    if (ev->key() == Qt::Key_Left)
-        mover_izq=false;
-    if (ev->key() == Qt::Key_Right)
-        mover_dcha=false;
-
-    if (ev->key() == Qt::Key_Space)
-        disparar=false;
+//---------------------------------------------------------
+// Tecla liberada
+//---------------------------------------------------------
+void Gamelogic::Releasebutton(QKeyEvent *ev)
+{
+    if (ev->key() == Qt::Key_Left) mover_izq=false;
+    if (ev->key() == Qt::Key_Right) mover_dcha=false;
+    if (ev->key() == Qt::Key_Space) disparar=false;
 }
 
+//---------------------------------------------------------
+// Actualiza todo el estado del juego una vez por frame
+//---------------------------------------------------------
 void Gamelogic::actualizar()
 {
-    // No actualizar si no ha iniciado el juego o si terminó
-    if (!juego_iniciado || juego_terminado() || nave_principal == nullptr|| pausa) {
-        return;
-    }
+    // Si está en pausa o terminado → no actualizar
+    if (!juego_iniciado || juego_terminado() || nave_principal == nullptr || pausa) return;
+
+    // Si los aliens llegaron a las barreras → pierde
     if (Aliens_alcanzaron_barreras()) {
-        nave_principal->recibir_danio(nave_principal->get_vidas_restantes()); // Matar la nave
+        nave_principal->recibir_danio(nave_principal->get_vidas_restantes());
         return;
     }
-    //✅ De acá pa'bajo modifico la invocación del movimiento general
-    if (mover_izq && (nave_principal->get_x() - 15 > 0) )
+
+    //-----------------------------------------------------
+    // Movimiento de la nave del jugador
+    //-----------------------------------------------------
+    if (mover_izq && (nave_principal->get_x() - 15 > 0))
         nave_principal->set_Vx(-10);
     else if (mover_dcha && (nave_principal->get_x() + 15 < 800))
         nave_principal->set_Vx(10);
     else
         nave_principal->set_Vx(0);
 
-    Mover_enemigos();//✅Para ir modificando su velocity
-    for(movil* movi:lista_moviles)
-        movi->movimiento();
+    //-----------------------------------------------------
+    // Movimiento general: aliens, proyectiles, nave bonus
+    //-----------------------------------------------------
+    Mover_enemigos();
 
+    // Mueve todos los elementos móviles
+    for (movil* movi : lista_moviles) movi->movimiento();
 
+    //-----------------------------------------------------
+    // Disparo del jugador
+    //-----------------------------------------------------
     if (disparar && lista_proyectil_jugador.empty()) {
-        proyectil* nuevo_proyectil = nave_principal->Disparar();
-        if (nuevo_proyectil != nullptr) {
-            lista_proyectil_jugador.append(nuevo_proyectil);
-            lista_dibujables.append(nuevo_proyectil);
-            //✅Asigno el proyectil a moviles
-            lista_moviles.append(nuevo_proyectil);
+        proyectil* nuevo = nave_principal->Disparar();
+        if (nuevo != nullptr) {
+            lista_proyectil_jugador.append(nuevo);
+            lista_dibujables.append(nuevo);
+            lista_moviles.append(nuevo);
         }
     }
 
-
+    //-----------------------------------------------------
+    // Eliminar proyectiles del jugador fuera o colisionados
+    //-----------------------------------------------------
     for (int i = 0; i < lista_proyectil_jugador.size(); i++) {
         proyectil* p = lista_proyectil_jugador[i];
 
@@ -454,70 +452,66 @@ void Gamelogic::actualizar()
         }
     }
 
-
+    //-----------------------------------------------------
+    // Eliminar proyectiles enemigos fuera o colisionados
+    //-----------------------------------------------------
     for (int i = 0; i < lista_proyectil_enemigos.size(); i++) {
         proyectil* p = lista_proyectil_enemigos[i];
-        //p->mover();
+
         if (p->get_y() > 600 || p->get_colision()) {
             lista_proyectil_enemigos.removeAt(i);
             lista_dibujables.removeOne(p);
-            //✅ Remover de lista moviles
             lista_moviles.removeOne(p);
             delete p;
             i--;
         }
     }
 
-
-    //mover nave bonus si existe
+    //-----------------------------------------------------
+    // Movimiento y eliminación de nave bonus
+    //-----------------------------------------------------
     if (nave_bonus != nullptr) {
         nave_bonus->movimiento();
 
-        // Eliminar si sale de pantalla o es destruida
         if (nave_bonus->fuera_de_pantalla() || nave_bonus->get_colision()) {
             lista_dibujables.removeOne(nave_bonus);
-            //✅La borró de moviles y asigno los puntos correspondientes
             lista_moviles.removeOne(nave_bonus);
             delete nave_bonus;
             nave_bonus = nullptr;
         }
     }
 
+    // Generar nave bonus si corresponde
     Generar_nave_bonus();
 
+    //-----------------------------------------------------
+    // Nuevamente movimiento alien y disparo
+    //-----------------------------------------------------
     Mover_enemigos();
-    // Disparar aliens
     Disparar_aliens();
-    //elimina aliens destruidos y suma puntos
-    // Eliminar aliens destruidos y sumar puntos
-    for (Alien* alf: lista_alien) {
-        if (alf->get_colision()) {
-            // Determinar puntos según el tipo de alien
-            // Calamar (fila 1): 30 puntos
-            // Cangrejo (filas 2-3): 20 puntos
-            // Pulpo (filas 4-5): 10 puntos
-            calamar* cal = dynamic_cast<calamar*>(alf);
-            cangrejo* can = dynamic_cast<cangrejo*>(alf);
-            Pulpo* pul = dynamic_cast<Pulpo*>(alf);
 
-            if (cal != nullptr) {
-                puntaje += 30;
-            } else if (can != nullptr) {
-                puntaje += 20;
-            } else if (pul != nullptr) {
-                puntaje += 10;
-            }
+    //-----------------------------------------------------
+    // Eliminar aliens destruidos y asignar puntos
+    //-----------------------------------------------------
+    for (Alien* alf : lista_alien) {
+        if (alf->get_colision()) {
+
+            // Determinar tipo de alien mediante dynamic_cast
+            if (dynamic_cast<calamar*>(alf)) puntaje += 30;
+            else if (dynamic_cast<cangrejo*>(alf)) puntaje += 20;
+            else if (dynamic_cast<Pulpo*>(alf)) puntaje += 10;
 
             lista_alien.removeOne(alf);
             lista_dibujables.removeOne(alf);
-            //✅Los elimino de la lista de moviles
             lista_moviles.removeOne(alf);
-
             delete alf;
         }
     }
+
+    //-----------------------------------------------------
     // Eliminar barreras destruidas
-    for (Barrera* barrita:lista_barrera) {
+    //-----------------------------------------------------
+    for (Barrera* barrita : lista_barrera) {
         if (barrita->get_colision()) {
             lista_barrera.removeOne(barrita);
             lista_dibujables.removeOne(barrita);
@@ -526,82 +520,79 @@ void Gamelogic::actualizar()
     }
 }
 
+//---------------------------------------------------------
+// Verificación de TODAS las colisiones del juego
+//---------------------------------------------------------
+void Gamelogic::Verificar_colisiones()
+{
+    if (!juego_iniciado || nave_principal == nullptr) return;
 
-
-void Gamelogic::Verificar_colisiones(){
-    // No verificar colisiones si no ha iniciado el juego
-    if (!juego_iniciado || nave_principal == nullptr)
-        return;
-    //colision proyectiles jugador con aliens
-    for (proyectil* proy: lista_proyectil_jugador)
-        for(Alien* alf: lista_alien){
-            if(proy->CheckCollision(alf)){
+    // Jugador → aliens
+    for (proyectil* proy : lista_proyectil_jugador)
+        for (Alien* alf : lista_alien)
+            if (proy->CheckCollision(alf)) {
                 alf->set_colision(true);
                 proy->set_colision(true);
             }
-    }
-    // Colisión proyectiles con barreras
-    for (proyectil* proy : lista_proyectil_jugador)
-        for (Barrera* barr : lista_barrera) {
-            if (proy->CheckCollision(barr)) {
-                barr->recibir_danio(1);  // Reducir vida de la barrera
-                proy->set_colision(true);  // Destruir el proyectil
-            }
-        }
-    // Colisión proyectiles enemigos con nave (ACTUALIZADO)
-    for (proyectil* proy : lista_proyectil_enemigos) {
-        if (proy->CheckCollision(nave_principal)) {
-            nave_principal->recibir_danio(1);  // La nave pierde 1 vida
-            proy->set_colision(true);           // Destruir el proyectil
-        }
-    }
-    //✅Agrego la colisión entre proyectiles, lo hago para mantener organización
-    for(proyectil*proy_j :lista_proyectil_jugador)
-        for(proyectil*proy_a: lista_proyectil_enemigos)
-            if(proy_j->CheckCollision(proy_a)){
-                proy_a->set_colision(true);
-                proy_j->set_colision(true);
-            }
 
-        // Colisión proyectiles enemigos con barreras
-    for (proyectil* proy : lista_proyectil_enemigos)
-        for (Barrera* barr : lista_barrera) {
+    // Jugador → barreras
+    for (proyectil* proy : lista_proyectil_jugador)
+        for (Barrera* barr : lista_barrera)
             if (proy->CheckCollision(barr)) {
                 barr->recibir_danio(1);
                 proy->set_colision(true);
             }
+
+    // Enemigos → nave
+    for (proyectil* proy : lista_proyectil_enemigos)
+        if (proy->CheckCollision(nave_principal)) {
+            nave_principal->recibir_danio(1);
+            proy->set_colision(true);
         }
-    // Colisión proyectiles jugador con nave bonus
+
+    // Proyectil jugador ↔ proyectil enemigo
+    for (proyectil* proy_j : lista_proyectil_jugador)
+        for (proyectil* proy_a : lista_proyectil_enemigos)
+            if (proy_j->CheckCollision(proy_a)) {
+                proy_a->set_colision(true);
+                proy_j->set_colision(true);
+            }
+
+    // Proyectil enemigo → barreras
+    for (proyectil* proy : lista_proyectil_enemigos)
+        for (Barrera* barr : lista_barrera)
+            if (proy->CheckCollision(barr)) {
+                barr->recibir_danio(1);
+                proy->set_colision(true);
+            }
+
+    // Jugador → nave bonus
     if (nave_bonus != nullptr) {
-        for (proyectil* proy : lista_proyectil_jugador) {
+        for (proyectil* proy : lista_proyectil_jugador)
             if (proy->CheckCollision(nave_bonus)) {
                 nave_bonus->set_colision(true);
                 proy->set_colision(true);
-                puntaje+=50;
+                puntaje += 50;   // Bonus
             }
-        }
-
     }
-
 }
+
+//---------------------------------------------------------
+// Detecta si algún alien llegó a la altura de las barreras
+//---------------------------------------------------------
 bool Gamelogic::Aliens_alcanzaron_barreras()
 {
     if (lista_alien.isEmpty()) return false;
 
-    // Obtener la posición Y más baja de las barreras
-    float limite_barrera = 500.0f;  // Usa el mismo valor Y que pusiste en inicializar_juego
+    float limite_barrera = 500.0f; // Y donde están las barreras
 
-    // Si hay barreras, usar su posición real
-    if (!lista_barrera.isEmpty()) {
+    if (!lista_barrera.isEmpty())
         limite_barrera = lista_barrera[0]->get_y();
-    }
 
-    // Verificar si algún alien sobrepasó ese límite
-    for (Alien* alien : lista_alien) {
-        if (alien->get_y() >= limite_barrera) {
+    // Si algún alien bajó demasiado → jugador pierde
+    for (Alien* alien : lista_alien)
+        if (alien->get_y() >= limite_barrera)
             return true;
-        }
-    }
 
     return false;
 }

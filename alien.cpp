@@ -36,6 +36,5 @@ proyectil* Alien::Disparar()
     float velocidad = 8;
 
     // Crea y devuelve un nuevo proyectil dinámicamente
-    // Parámetros: (velocidad, tipo?, x, y, ancho, alto)
     return new proyectil(velocidad, 1, x_proyectil, y_proyectil, ancho_proyectil, alto_proyectil);
 }

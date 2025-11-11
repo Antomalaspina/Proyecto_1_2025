@@ -15,8 +15,7 @@
 class Alien : public colisionable, public Dibujable_abstracto, public movil
 {
 private:
-    // (No hay atributos privados adicionales definidos aquí,
-    // los atributos vienen de las clases base)
+
 
 public:
     // Constructor que inicializa vida, posición (x,y) y dimensiones (ancho, alto)
