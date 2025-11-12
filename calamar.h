@@ -7,8 +7,8 @@ class calamar : public Alien
 {
 public:
     calamar(int vida_,float x_, float y_,float ancho_, float alto_, float separacion_alien);
-     void Dibujar(QPainter &Qpainter) override ;
-
+    void Dibujar(QPainter &P) override ;
+  QRectF get_area() const override;
 };
 
 #endif // CALAMAR_H

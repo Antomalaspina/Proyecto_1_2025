@@ -3,23 +3,29 @@
 float Dibujable_abstracto::get_x()
 {
 
-    return 0.0f; // Cambiar por el valor apropiado
+    return x; // Cambiar por el valor apropiado
 }
 
 float Dibujable_abstracto::get_y()
 {
 
-    return 0.0f; // Cambiar por el valor apropiado
+    return y; // Cambiar por el valor apropiado
 }
 
 float Dibujable_abstracto::get_ancho()
 {
 
-    return 0.0f; // Cambiar por el valor apropiado
+    return ancho; // Cambiar por el valor apropiado
 }
 
 float Dibujable_abstracto::get_alto()
 {
 
-    return 0.0f; // Cambiar por el valor apropiado
+    return alto; // Cambiar por el valor apropiado
 }
+// QRect Dibujable_abstracto::get_area()
+// {
+//     return QRect(x - ancho/2, y - alto/2, ancho, alto);
+
+
+// }

@@ -9,16 +9,20 @@
 
 class GameWidget: public QWidget
 {
-    //Q_OBJECT
+    Q_OBJECT
 private:
-    QTimer * Tiempo_principal;
-     Gamelogic *logic;
+    QTimer *Tiempo_principal;  // Timer que actualiza el juego
+    Gamelogic *logic;          // Lógica del juego (nave, aliens, colisiones, etc.)
+
 public:
-    GameWidget(QWidget *parent =nullptr);// mi constructor instancia un objeto que apunta a Qwidget
-    void paintEvent(QPaintEvent * );
-    void keyPressEvent(QKeyEvent *);
+    explicit GameWidget(QWidget *parent = nullptr);
+
+protected:
+    void paintEvent(QPaintEvent *event) override;   // Redibuja pantalla
+    void keyPressEvent(QKeyEvent *event) override;  // Captura teclas
+    void keyReleaseEvent(QKeyEvent*) override;
 private slots:
-    void actualizarJuego();
+    void actualizarJuego();  // Slot que mueve enemigos y actualiza pantalla
 };
 
 #endif // GAMEWIDGET_H

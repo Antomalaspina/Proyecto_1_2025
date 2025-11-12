@@ -6,23 +6,50 @@ Nave::Nave( float pos_x, float pos_y ) {
     y= pos_y;
     ancho=30.0f;
     alto=20.0f;
+    vida=3;
 }
- void Nave::set_x(float x_nave_nueva){
-     x=x_nave_nueva;
+
+void Nave::movimiento(){
+    x+=Vx;
 }
+
+
  void Nave::Dibujar(QPainter &P){
+     // Solo dibujar si tiene vida
+     if (vida <= 0) return;
      P.setPen(Qt::green);
-     P.setBrush(Qt::blue);
+     P.setBrush(Qt::green);
 
-     // RECONSTRUIR el polígono con la posición ACTUAL cada vez que se dibuja
-     float mitad_ancho = ancho / 2.0f;
-     float mitad_alto = alto / 2.0f;
+     // Base (parte inferior ancha)
+     QRect base(QPoint(x - 15, y - 8), QPoint(x + 15, y));
+     P.drawRect(base);
 
-     QPolygon polygon;
-     polygon << QPoint(x - mitad_ancho, y - mitad_alto)  // Superior izquierda
-             << QPoint(x + mitad_ancho, y - mitad_alto)  // Superior derecha
-             << QPoint(x + mitad_ancho, y + mitad_alto)  // Inferior derecha
-             << QPoint(x - mitad_ancho, y + mitad_alto); // Inferior izquierda
+     // Torreta (parte superior angosta)
+     QRect torreta(QPoint(x - 8, y - 14), QPoint(x + 8, y - 8));
+     P.drawRect(torreta);
 
-     P.drawPolygon(polygon);
+     // Cañón (rectángulo central alargado)
+     QRect canon(QPoint(x - 2, y - 22), QPoint(x + 2, y - 14));
+     P.drawRect(canon);
+
+ }
+ QRectF Nave::get_area() const
+ {
+     return QRectF(x - 15, y - 22, 30, 22);
+ }
+
+ proyectil* Nave::Disparar() {
+     float x_proyectil = x;
+     float y_proyectil = y - alto/2;
+     float ancho_proyectil = 3;
+     float alto_proyectil = 10;
+     float velocidad = -12; // Negativa para que suba
+     return new proyectil(velocidad, 1, x_proyectil, y_proyectil, ancho_proyectil, alto_proyectil);
+ }
+ void Nave::recibir_danio(int danio)
+ {
+     vida -= danio;
+     if (vida < 0) {
+         vida = 0;
+     }
  }

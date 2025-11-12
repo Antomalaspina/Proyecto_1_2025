@@ -4,7 +4,9 @@ C:/Users/ASUS/Documents/Space_Invaders/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug
   C:/Qt/6.9.2/mingw_64/include/QtCore/QList \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QObject \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QPoint \
+  C:/Qt/6.9.2/mingw_64/include/QtCore/QRandomGenerator \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QRect \
+  C:/Qt/6.9.2/mingw_64/include/QtCore/QRectF \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QSize \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QSizeF \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QTimer \
@@ -90,6 +92,7 @@ C:/Users/ASUS/Documents/Space_Invaders/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug
   C:/Qt/6.9.2/mingw_64/include/QtCore/qpair.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qpoint.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qprocessordetection.h \
+  C:/Qt/6.9.2/mingw_64/include/QtCore/qrandom.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qrect.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qrefcount.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/qscopedpointer.h \
@@ -246,6 +249,8 @@ C:/Users/ASUS/Documents/Space_Invaders/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/postypes.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/predefined_ops.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ptr_traits.h \
+  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/random.h \
+  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/random.tcc \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/range_access.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/refwrap.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
@@ -331,6 +336,7 @@ C:/Users/ASUS/Documents/Space_Invaders/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_memory_defs.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_numeric_defs.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/pstl_config.h \
+  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/random \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/set \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdexcept \
@@ -368,13 +374,20 @@ C:/Users/ASUS/Documents/Space_Invaders/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
+  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/opt_random.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
+  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/emmintrin.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/limits.h \
+  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mm_malloc.h \
+  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mmintrin.h \
+  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mwaitintrin.h \
+  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/pmmintrin.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdarg.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdbool.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stddef.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdint.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/syslimits.h \
+  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xmmintrin.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_mingw.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_mingw_mac.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_mingw_off_t.h \
@@ -412,10 +425,9 @@ C:/Users/ASUS/Documents/Space_Invaders/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Users/ASUS/Documents/Space_Invaders/alien.h \
   C:/Users/ASUS/Documents/Space_Invaders/barrera.h \
-  C:/Users/ASUS/Documents/Space_Invaders/calamar.h \
-  C:/Users/ASUS/Documents/Space_Invaders/cangrejo.h \
+  C:/Users/ASUS/Documents/Space_Invaders/colisionable.h \
   C:/Users/ASUS/Documents/Space_Invaders/dibujable_abstracto.h \
   C:/Users/ASUS/Documents/Space_Invaders/gamelogic.h \
   C:/Users/ASUS/Documents/Space_Invaders/nave.h \
-  C:/Users/ASUS/Documents/Space_Invaders/proyectil.h \
-  C:/Users/ASUS/Documents/Space_Invaders/pulpo.h
+  C:/Users/ASUS/Documents/Space_Invaders/nave_enemiga.h \
+  C:/Users/ASUS/Documents/Space_Invaders/proyectil.h
