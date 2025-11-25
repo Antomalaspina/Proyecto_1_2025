@@ -1,23 +1,21 @@
 #ifndef MOVIL_H
 #define MOVIL_H
-class Movil
+
+// Clase abstracta que define objetos con velocidad y movimiento
+class movil
 {
 protected:
-    float Vy=0;
-    float Vx=0;
+    float Vy = 0;   // Velocidad vertical
+    float Vx = 0;   // Velocidad horizontal
+
 public:
-    //el destructor también taba en colisionable así que lo copio
-    // virtual ~Movil();
+    // Método virtual puro: las clases hijas deben implementar el movimiento
+    virtual void movimiento() = 0;// aca declaro que es abstracta ya que cada forma de moverse depende de cada objeto
 
-    virtual void movimiento()=0;
-    //Las hago abstractas para después usar los get_pos del resto de clases
-    // virtual void mod_posX(float add_x)=0;
-    // virtual void mod_posY(float add_y)=0;
-
-    //Con esto se puede modificar la velocidad en cualquier momento sin necesidad
-    //de modificar el constructor de las clases hijas
-    void set_Vx(float Vx_){Vx=Vx_;}
-    void set_Vy(float Vy_){Vy=Vy_;}
+    // Setters de velocidad: permiten modificarla en tiempo real
+    void set_Vx(float Vx_) { Vx = Vx_; }//recibe Vx_ que se lo asigna a Vx
+    void set_Vy(float Vy_) { Vy = Vy_; }
 };
 
 #endif // MOVIL_H
+

@@ -1,9 +1,0 @@
-C:/Users/Usuario/Desktop/UNI/PC2/Proyecto_1_Anto/proyecto2pcii/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/CMakeFiles/Space_Invaders.dir
-C:/Users/Usuario/Desktop/UNI/PC2/Proyecto_1_Anto/proyecto2pcii/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
-C:/Users/Usuario/Desktop/UNI/PC2/Proyecto_1_Anto/proyecto2pcii/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
-C:/Users/Usuario/Desktop/UNI/PC2/Proyecto_1_Anto/proyecto2pcii/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
-C:/Users/Usuario/Desktop/UNI/PC2/Proyecto_1_Anto/proyecto2pcii/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/CMakeFiles/install.dir
-C:/Users/Usuario/Desktop/UNI/PC2/Proyecto_1_Anto/proyecto2pcii/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
-C:/Users/Usuario/Desktop/UNI/PC2/Proyecto_1_Anto/proyecto2pcii/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
-C:/Users/Usuario/Desktop/UNI/PC2/Proyecto_1_Anto/proyecto2pcii/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/CMakeFiles/Space_Invaders_autogen_timestamp_deps.dir
-C:/Users/Usuario/Desktop/UNI/PC2/Proyecto_1_Anto/proyecto2pcii/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/CMakeFiles/Space_Invaders_autogen.dir

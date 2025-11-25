@@ -1,18 +1,26 @@
 #ifndef PROYECTIL_H
 #define PROYECTIL_H
-#include "colisionable.h"
-#include "dibujable_abstracto.h"
-#include "movil.h"
 
-//✅Hereda de movil y ya no necesita get_vel o set_y
-class proyectil: public colisionable, public Dibujable_abstracto, public Movil
+#include "colisionable.h"        // Permite detectar colisiones
+#include "dibujable_abstracto.h" // Define posición, tamaño y dibujado
+#include "movil.h"               // Define velocidades y movimiento
+
+// Clase proyectil: representa balas tanto del jugador como de los aliens.
+// Hereda comportamiento de colisión, dibujo y movimiento.
+class proyectil: public colisionable, public Dibujable_abstracto, public movil
 {
+
 public:
-    proyectil(float velocidad_y, int vida_, float x_,float _y,float ancho_,float alto_);
-    void mover();
+    // Constructor: inicializa velocidad vertical, vida y dimensiones del proyectil
+    proyectil(float velocidad_y, int vida_, float x_, float _y, float ancho_, float alto_);
+
+    // Área rectangular usada para colisiones
     QRectF get_area() const override;
-    void Dibujar(QPainter &P) override ;
-    //✅métodos de movil:
+
+    // Dibujo gráfico del proyectil
+    void Dibujar(QPainter &P) override;
+
+    // Movimiento vertical según la velocidad Vy
     virtual void movimiento() override;
 };
 

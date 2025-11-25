@@ -1,5 +1,5 @@
-C:/Users/ASUS/Documents/Space_Invaders/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/Space_Invaders_autogen/EWIEGA46WW/moc_gamewidget.cpp: C:/Users/ASUS/Documents/Space_Invaders/gamewidget.h \
-  C:/Users/ASUS/Documents/Space_Invaders/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/Space_Invaders_autogen/moc_predefs.h \
+C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/Space_Invaders_autogen/EWIEGA46WW/moc_gamewidget.cpp: C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/gamewidget.h \
+  C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/Space_Invaders_autogen/moc_predefs.h \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QLine \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QList \
   C:/Qt/6.9.2/mingw_64/include/QtCore/QObject \
@@ -423,11 +423,12 @@ C:/Users/ASUS/Documents/Space_Invaders/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
-  C:/Users/ASUS/Documents/Space_Invaders/alien.h \
-  C:/Users/ASUS/Documents/Space_Invaders/barrera.h \
-  C:/Users/ASUS/Documents/Space_Invaders/colisionable.h \
-  C:/Users/ASUS/Documents/Space_Invaders/dibujable_abstracto.h \
-  C:/Users/ASUS/Documents/Space_Invaders/gamelogic.h \
-  C:/Users/ASUS/Documents/Space_Invaders/nave.h \
-  C:/Users/ASUS/Documents/Space_Invaders/nave_enemiga.h \
-  C:/Users/ASUS/Documents/Space_Invaders/proyectil.h
+  C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/alien.h \
+  C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/barrera.h \
+  C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/colisionable.h \
+  C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/dibujable_abstracto.h \
+  C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/gamelogic.h \
+  C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/movil.h \
+  C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/nave.h \
+  C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/nave_enemiga.h \
+  C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/proyectil.h

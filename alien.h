@@ -1,26 +1,32 @@
 #ifndef ALIEN_H
 #define ALIEN_H
+// Guardas de inclusión para evitar inclusiones múltiples
+//verificando github
+
 #include "colisionable.h"
 #include "movil.h"
 #include "proyectil.h"
-
 #include "dibujable_abstracto.h"
 
-class Alien : public colisionable,public Dibujable_abstracto, public Movil
+// La clase Alien hereda de múltiples clases (herencia múltiple):
+// - colisionable: permite detectar colisiones con otros objetos
+// - Dibujable_abstracto: permite que el alien sea dibujado en pantalla
+// - movil: permite que el alien se mueva
+class Alien : public colisionable, public Dibujable_abstracto, public movil
 {
 private:
-    float separacion_alien;
+
 
 public:
-    Alien(float separacion_alien,int vida_,float x_, float y_,float ancho_, float alto_);
-    // void set_x(float x_alien_movimiento);
-    // void set_y(float y_alien_movimiento);
+    // Constructor que inicializa vida, posición (x,y) y dimensiones (ancho, alto)
+    Alien(int vida_, float x_, float y_, float ancho_, float alto_);
+
+    // Método que crea un proyectil disparado por el alien
     proyectil* Disparar();
-    //✅métodos de movil:
+
+    // Implementación del método movimiento() heredado de la clase movil
+    // El 'override' indica que sobrescribe el método virtual de la clase base
     virtual void movimiento() override;
-    //Las hago abstractas para después usar los get_pos del resto de clases
-    // virtual void mod_posX(float add_x) override;
-    // virtual void mod_posY(float add_y) override;
 };
 
 #endif // ALIEN_H

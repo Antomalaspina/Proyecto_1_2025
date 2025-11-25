@@ -23,7 +23,6 @@ qt_add_executable(Space_Invaders
     nave_enemiga.h nave_enemiga.cpp
     movil.h
 
-
 )
 
 target_link_libraries(Space_Invaders

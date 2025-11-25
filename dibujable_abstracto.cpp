@@ -1,31 +1,25 @@
 #include "dibujable_abstracto.h"
 
+// Devuelve la coordenada X del objeto
 float Dibujable_abstracto::get_x()
 {
-
-    return x; // Cambiar por el valor apropiado
+    return x;
 }
 
+// Devuelve la coordenada Y del objeto
 float Dibujable_abstracto::get_y()
 {
-
-    return y; // Cambiar por el valor apropiado
+    return y;
 }
 
+// Devuelve el ancho del objeto
 float Dibujable_abstracto::get_ancho()
 {
-
-    return ancho; // Cambiar por el valor apropiado
+    return ancho;
 }
 
+// Devuelve el alto del objeto
 float Dibujable_abstracto::get_alto()
 {
-
-    return alto; // Cambiar por el valor apropiado
+    return alto;
 }
-// QRect Dibujable_abstracto::get_area()
-// {
-//     return QRect(x - ancho/2, y - alto/2, ancho, alto);
-
-
-// }

@@ -372,31 +372,94 @@ Space_Invaders_autogen/timestamp: \
 	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersionImpl.cmake \
 	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateTargets.cmake \
 	C:/Qt/6.9.2/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateVersionlessAliasTargets.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCXXCompiler.cmake.in \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCXXInformation.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCompilerIdDetection.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineCompilerSupport.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineRCCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindBinUtils.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeNinjaFindMake.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeParseImplicitIncludeInfo.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeParseImplicitLinkInfo.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeParseLibraryArchitecture.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeRCCompiler.cmake.in \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeRCInformation.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeSystem.cmake.in \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeTestCompilerCommon.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeTestRCCompiler.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CheckCXXCompilerFlag.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CheckCXXSourceCompiles.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CheckIncludeFileCXX.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CheckLibraryExists.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/ADSP-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/ARMCC-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/ARMClang-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/AppleClang-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/Borland-DetermineCompiler.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/Clang-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/Clang-DetermineCompilerInternal.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/Cray-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/CrayClang-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/Embarcadero-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/Fujitsu-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/GHS-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/GNU-CXX.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/GNU-FindBinUtils.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/GNU.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/HP-CXX-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/IAR-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/Intel-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/MSVC-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/NVHPC-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/NVIDIA-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/OrangeC-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/PGI-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/PathScale-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/SCO-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/TI-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/TIClang-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/Tasking-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/Watcom-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/XL-CXX-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/FindPackageMessage.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/FindThreads.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/FindVulkan.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/GNUInstallDirs.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Internal/CheckCompilerFlag.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Internal/CheckFlagCommonConfig.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Internal/CheckSourceCompiles.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Internal/FeatureTesting.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-Determine-CXX.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX-ABI.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU.cmake \
@@ -627,39 +690,37 @@ Space_Invaders_autogen/timestamp: \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
-	C:/Users/ASUS/Documents/Space_Invaders/CMakeLists.txt \
-	C:/Users/ASUS/Documents/Space_Invaders/alien.cpp \
-	C:/Users/ASUS/Documents/Space_Invaders/alien.h \
-	C:/Users/ASUS/Documents/Space_Invaders/barrera.cpp \
-	C:/Users/ASUS/Documents/Space_Invaders/barrera.h \
-	C:/Users/ASUS/Documents/Space_Invaders/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake \
-	C:/Users/ASUS/Documents/Space_Invaders/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/.qtc/package-manager/maintenance_tool_provider.cmake \
-	C:/Users/ASUS/Documents/Space_Invaders/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake \
-	C:/Users/ASUS/Documents/Space_Invaders/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
-	C:/Users/ASUS/Documents/Space_Invaders/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
-	C:/Users/ASUS/Documents/Space_Invaders/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/Space_Invaders_autogen/moc_predefs.h \
-	C:/Users/ASUS/Documents/Space_Invaders/calamar.cpp \
-	C:/Users/ASUS/Documents/Space_Invaders/calamar.h \
-	C:/Users/ASUS/Documents/Space_Invaders/cangrejo.cpp \
-	C:/Users/ASUS/Documents/Space_Invaders/cangrejo.h \
-	C:/Users/ASUS/Documents/Space_Invaders/colisionable.cpp \
-	C:/Users/ASUS/Documents/Space_Invaders/colisionable.h \
-	C:/Users/ASUS/Documents/Space_Invaders/dibujable_abstracto.cpp \
-	C:/Users/ASUS/Documents/Space_Invaders/dibujable_abstracto.h \
-	C:/Users/ASUS/Documents/Space_Invaders/escenario.cpp \
-	C:/Users/ASUS/Documents/Space_Invaders/escenario.h \
-	C:/Users/ASUS/Documents/Space_Invaders/gamelogic.cpp \
-	C:/Users/ASUS/Documents/Space_Invaders/gamelogic.h \
-	C:/Users/ASUS/Documents/Space_Invaders/gamewidget.cpp \
-	C:/Users/ASUS/Documents/Space_Invaders/gamewidget.h \
-	C:/Users/ASUS/Documents/Space_Invaders/main.cpp \
-	C:/Users/ASUS/Documents/Space_Invaders/movil.h \
-	C:/Users/ASUS/Documents/Space_Invaders/nave.cpp \
-	C:/Users/ASUS/Documents/Space_Invaders/nave.h \
-	C:/Users/ASUS/Documents/Space_Invaders/nave_enemiga.cpp \
-	C:/Users/ASUS/Documents/Space_Invaders/nave_enemiga.h \
-	C:/Users/ASUS/Documents/Space_Invaders/proyectil.cpp \
-	C:/Users/ASUS/Documents/Space_Invaders/proyectil.h \
-	C:/Users/ASUS/Documents/Space_Invaders/pulpo.cpp \
-	C:/Users/ASUS/Documents/Space_Invaders/pulpo.h \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/CMakeLists.txt \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/alien.cpp \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/alien.h \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/barrera.cpp \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/barrera.h \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/.qtc/package-manager/maintenance_tool_provider.cmake \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/build/Desktop_Qt_6_9_2_MinGW_64_bit-Debug/Space_Invaders_autogen/moc_predefs.h \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/calamar.cpp \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/calamar.h \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/cangrejo.cpp \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/cangrejo.h \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/colisionable.cpp \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/colisionable.h \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/dibujable_abstracto.cpp \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/dibujable_abstracto.h \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/gamelogic.cpp \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/gamelogic.h \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/gamewidget.cpp \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/gamewidget.h \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/main.cpp \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/movil.h \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/nave.cpp \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/nave.h \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/nave_enemiga.cpp \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/nave_enemiga.h \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/proyectil.cpp \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/proyectil.h \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/pulpo.cpp \
+	C:/Users/ASUS/Documents/Proyecto_1_2025-primera_rama/pulpo.h \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe
